@@ -1509,7 +1509,7 @@ MonoBehaviour:
   ammo3: {fileID: 0}
   ammo4: {fileID: 0}
   shoot_point: {fileID: 840636956}
-  force: 1500
+  force: 2500
 --- !u!114 &2024411519
 MonoBehaviour:
   m_ObjectHideFlags: 0
