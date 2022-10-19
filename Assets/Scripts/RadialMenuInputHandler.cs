@@ -12,9 +12,9 @@ public class RadialMenuInputHandler : MonoBehaviour
     // Holds the current state of the 4 available crops
     /*
         1 = tomato
-        2 = pumpkin
-        3 =
-        4 =
+        2 = corn
+        3 = pumpkin
+        4 = turnip
     */
     [System.NonSerialized] public int cropState = 1;
 
