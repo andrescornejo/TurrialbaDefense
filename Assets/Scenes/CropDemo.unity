@@ -740,7 +740,7 @@ PrefabInstance:
     - target: {fileID: 6598815579406187037, guid: 9f5a24a380916d14db9775daab4fe333,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}
@@ -1509,7 +1509,7 @@ MonoBehaviour:
   ammo2: {fileID: 7441384966621574244, guid: 6a9626c2dc55a894b9e7f86376a9605a, type: 3}
   ammo3: {fileID: 0}
   ammo4: {fileID: 0}
-  shoot_point: {fileID: 840636956}
+  origin: {fileID: 840636956}
   force: 1500
 --- !u!114 &2024411519
 MonoBehaviour:
