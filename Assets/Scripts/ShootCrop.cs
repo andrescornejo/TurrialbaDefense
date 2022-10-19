@@ -5,9 +5,13 @@ using UnityEngine;
 public class ShootCrop : MonoBehaviour
 {
 
-    public GameObject projectile;
-    public Transform shoot_point;
-    public float force, fireRate, nextFire;
+    private GameObject current_projectile;
+    public GameObject ammo1;
+	public GameObject ammo2;
+	public GameObject ammo3;
+	public GameObject ammo4;
+    public GameObject shoot_point;
+    public float force;
 
     // Start is called before the first frame update
     void Start()
@@ -25,12 +29,28 @@ public class ShootCrop : MonoBehaviour
             shoot();
         }
         */
+        int cropState = 1;
+        switch (cropState)
+        {
+            case 1:
+                current_projectile = ammo1;
+                break;
+			case 2:
+				current_projectile = ammo2;
+				break;
+			case 3:
+				current_projectile = ammo3;
+				break;
+			case 4:
+				current_projectile = ammo4;
+				break;
+        }
     }
 
-    public void shoot(){
-        
-        GameObject bullet = Instantiate(projectile, shoot_point.position, transform.rotation);
-        bullet.GetComponent<Rigidbody>().AddForce(transform.forward * force);
+    public void shoot()
+    {
+        GameObject bullet = Instantiate(current_projectile, shoot_point.transform.position, transform.rotation);
+        bullet.GetComponent<Rigidbody>().AddForce(shoot_point.transform.forward * force);
         Destroy(bullet, 4);
     }
 }
