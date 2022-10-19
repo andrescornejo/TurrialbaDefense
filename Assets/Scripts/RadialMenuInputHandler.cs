@@ -51,17 +51,17 @@ public class RadialMenuInputHandler : MonoBehaviour
                  thumbstick.action.ReadValue<Vector2>().y >= -0.5 &&
                  thumbstick.action.ReadValue<Vector2>().x >= 0.5)
         {
-            // West position
+            // East position
             selectionIndicator.transform.localRotation = Quaternion.Euler(0, 0, 270);
-            cropState = 2;
+            cropState = 4;
         }
         else if (thumbstick.action.ReadValue<Vector2>().y <= 0.5 && 
                  thumbstick.action.ReadValue<Vector2>().y >= -0.5 &&
                  thumbstick.action.ReadValue<Vector2>().x <= -0.5)
         {
-            // East position
+            // West position
             selectionIndicator.transform.localRotation = Quaternion.Euler(0, 0, 90);
-            cropState = 4;
+            cropState = 2;
         }
     }
 }

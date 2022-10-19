@@ -6,6 +6,8 @@ public class ShootCrop : MonoBehaviour
 {
 
     private GameObject current_projectile;
+    public GameObject radialMenu;
+    private RadialMenuInputHandler inputHandler;
     public GameObject ammo1;
 	public GameObject ammo2;
 	public GameObject ammo3;
@@ -16,21 +18,13 @@ public class ShootCrop : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        inputHandler = radialMenu.GetComponent<RadialMenuInputHandler>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*
-        if(Time.time >= nextFire){
-
-            nextFire = Time.time + 1f / fireRate;
-            shoot();
-        }
-        */
-        int cropState = 1;
-        switch (cropState)
+        switch (inputHandler.cropState)
         {
             case 1:
                 current_projectile = ammo1;
