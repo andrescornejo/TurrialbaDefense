@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;  
 public class DetectHit : MonoBehaviour
 {
-    float health = 100;
+    float health = 200;
     public TMP_Text mText;
     // Start is called before the first frame update
     void Start()
@@ -41,7 +41,7 @@ public class DetectHit : MonoBehaviour
             GetComponent<Animator>().Play("Base Layer.die");
             Destroy(gameObject, 2);
         }
-        mText.text = health.ToString();
+        mText.text = "Health: "+health.ToString();
     }
 
    
