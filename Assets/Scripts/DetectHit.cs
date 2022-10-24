@@ -37,7 +37,7 @@ public class DetectHit : MonoBehaviour
         }
   
         if (health < 1) {
-
+            GetComponent<walk>().enabled = false;
             GetComponent<Animator>().Play("Base Layer.die");
             Destroy(gameObject, 2);
         }

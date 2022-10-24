@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class walk : MonoBehaviour
 {
-    public float speed = 0.2f;
+    public float speed = 0.02f;
     // Start is called before the first frame update
     void Start()
     {

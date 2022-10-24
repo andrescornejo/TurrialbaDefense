@@ -16,7 +16,7 @@ public class HandleRounds : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        roundTimesList = new List<int> { 30, 20, 20, 30 };
+        roundTimesList = new List<int> { 40, 30, 60, 10 };
         spawnPoints = new List<Transform> { corner1, corner2, corner3, corner4 };
         StartCoroutine(SendEnemies());
     }
@@ -29,10 +29,10 @@ public class HandleRounds : MonoBehaviour
 
     IEnumerator SendEnemies()
     {
-        
+        mText.text = "Round starts soon! Get Ready";
+        yield return new WaitForSeconds(30);
         var random = new System.Random();
-        
-      
+ 
         int amountRounds = roundTimesList.Count;
         
         for (int i = 0; i < amountRounds; i++)
