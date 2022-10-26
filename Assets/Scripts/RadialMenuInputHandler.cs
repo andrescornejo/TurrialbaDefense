@@ -35,7 +35,7 @@ public class RadialMenuInputHandler : MonoBehaviour
             thumbstick.action.ReadValue<Vector2>().x >= -0.5 &&
             thumbstick.action.ReadValue<Vector2>().y >= 0.5)
         {
-            // North position
+            // CORN position
             selectionIndicator.transform.localRotation = Quaternion.Euler(0, 0, 0);
             cropState = 1;
         }
@@ -43,7 +43,7 @@ public class RadialMenuInputHandler : MonoBehaviour
                  thumbstick.action.ReadValue<Vector2>().x >= -0.5 &&
                  thumbstick.action.ReadValue<Vector2>().y <= -0.5)
         {
-            // South position
+            // TOMATO position
             selectionIndicator.transform.localRotation = Quaternion.Euler(0, 0, 180);
             cropState = 3;
         }
@@ -51,7 +51,7 @@ public class RadialMenuInputHandler : MonoBehaviour
                  thumbstick.action.ReadValue<Vector2>().y >= -0.5 &&
                  thumbstick.action.ReadValue<Vector2>().x >= 0.5)
         {
-            // East position
+            // TURNIP position
             selectionIndicator.transform.localRotation = Quaternion.Euler(0, 0, 270);
             cropState = 4;
         }
@@ -59,7 +59,7 @@ public class RadialMenuInputHandler : MonoBehaviour
                  thumbstick.action.ReadValue<Vector2>().y >= -0.5 &&
                  thumbstick.action.ReadValue<Vector2>().x <= -0.5)
         {
-            // West position
+            // PUMPKIN position
             selectionIndicator.transform.localRotation = Quaternion.Euler(0, 0, 90);
             cropState = 2;
         }
