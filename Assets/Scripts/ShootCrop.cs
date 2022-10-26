@@ -18,7 +18,6 @@ public class ShootCrop : MonoBehaviour
     {
         inventory = fruitBasket.GetComponent<DetectFruitAddition>();
         inputHandler = radialMenu.GetComponent<RadialMenuInputHandler>();
-        
     }
 
     // Update is called once per frame
@@ -28,52 +27,19 @@ public class ShootCrop : MonoBehaviour
         {
             case 1:
                 currentProjectile = cornObject;
-                if (inventory.corn > 0)
-                {
-                    hasAmmo = true;
-                    inventory.DecreaseAmmo(currentProjectile.tag);
-                }
-                else
-                {
-                    hasAmmo = false;
-                }
+                hasAmmo = inventory.corn > 0;
                 break;
 			case 2:
 				currentProjectile = tomatoObject;
-                if (inventory.tomato > 0)
-                {
-                    hasAmmo = true;
-                    inventory.DecreaseAmmo(currentProjectile.tag);
-                }
-                else
-                {
-                    hasAmmo = false;
-                }
+                hasAmmo = inventory.tomato > 0;
                 break;
 			case 3:
 				currentProjectile = turnipObject;
-                if (inventory.turnip > 0)
-                {
-                    hasAmmo = true;
-                    inventory.DecreaseAmmo(currentProjectile.tag);
-                }
-                else
-                {
-                    hasAmmo = false;
-                }
+                hasAmmo = inventory.turnip > 0;
                 break;
 			case 4:
 				currentProjectile = pumpkinObject;
-                if (inventory.pumpkin > 0)
-                {
-                    hasAmmo = true; 
-                    inventory.DecreaseAmmo(currentProjectile.tag);
-                }
-                else
-                {
-                    hasAmmo = false;
-                }   
-
+                hasAmmo = inventory.pumpkin > 0;
                 break;
         }
     }
@@ -83,9 +49,12 @@ public class ShootCrop : MonoBehaviour
         if(hasAmmo){ 
             GameObject bullet = Instantiate(currentProjectile, origin.transform.position, transform.rotation);
             bullet.GetComponent<Rigidbody>().AddForce(origin.transform.forward * force);
-            Destroy(bullet, 4);
-            
+         
+                bullet.GetComponent<Rigidbody>().AddForce(origin.transform.up * 50.5f);
+           
+
+            inventory.DecreaseAmmo(currentProjectile.tag);
+            Destroy(bullet, 3);
         }
-        
     }
 }

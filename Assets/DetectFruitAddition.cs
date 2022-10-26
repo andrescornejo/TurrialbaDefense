@@ -11,10 +11,7 @@ public class DetectFruitAddition : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        corn = 0;
-        tomato = 0;
-        turnip = 0;
-        pumpkin = 0;
+
     }
 
     // Update is called once per frame
@@ -73,6 +70,5 @@ public class DetectFruitAddition : MonoBehaviour
     void DisplayCurrentAmmo(string ammoUpdated, int newAmount)
     {
         mText.text = "Current Bullet\n" + ammoUpdated + ": "+newAmount;
-
     }
 }
