@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 5706637962983207651}
   - component: {fileID: 2200815881914991260}
   - component: {fileID: 476924906570302198}
+  - component: {fileID: -2584463892927972318}
   m_Layer: 7
   m_Name: Corn Fruit
-  m_TagString: Untagged
+  m_TagString: Corn Fruit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,8 +125,8 @@ Rigidbody:
   m_GameObject: {fileID: 8533011547170633007}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 2
+  m_AngularDrag: 6
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -252,3 +253,15 @@ MonoBehaviour:
   m_ForceGravityOnDetach: 0
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
+--- !u!114 &-2584463892927972318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8533011547170633007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69268de23ac5aea4e8404a8ef7b44b16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

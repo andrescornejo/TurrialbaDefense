@@ -7,7 +7,7 @@ public class DropCrop : MonoBehaviour
 {
     public GameObject seedDropPrefab, cropDropPrefab;
     public int seedDropAmount, cropDropAmount, hitpoints;
-    private float spawnDelay = 0.2f;
+    private float spawnDelay = 0.5f;
 
     void Start()
     {
