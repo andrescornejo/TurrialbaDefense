@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class DetectFruitAddition : MonoBehaviour
+public class InventoryManager : MonoBehaviour
 {
     public int corn, tomato, turnip, pumpkin;
     public TMP_Text ammoText;
@@ -23,10 +23,10 @@ public class DetectFruitAddition : MonoBehaviour
 
     }
 
-    void OnTriggerEnter(Collider collision)
+    void OnTriggerEnter(Collider collider)
     {
-        if (!collision.gameObject.tag.Contains("Fruit")) return;
-        switch (collision.gameObject.tag)
+        if (!collider.gameObject.tag.Contains("Fruit")) return;
+        switch (collider.gameObject.tag)
         {
             case "Corn Fruit":
                 corn++;
@@ -41,7 +41,7 @@ public class DetectFruitAddition : MonoBehaviour
                 tomato++;
                 break;
         }
-        Destroy(collision.gameObject);
+        Destroy(collider.gameObject);
         DisplayCurrentAmmo(inputHandler.currentCrop);
     }
 

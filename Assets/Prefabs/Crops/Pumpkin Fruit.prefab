@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3197064597194105000}
   - component: {fileID: 5230021441545428536}
   - component: {fileID: 5063561360251230146}
+  - component: {fileID: 2099905307032750469}
   m_Layer: 7
   m_Name: Pumpkin Fruit
   m_TagString: Pumpkin Fruit
@@ -264,3 +265,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69268de23ac5aea4e8404a8ef7b44b16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distance: 3.2
+--- !u!114 &2099905307032750469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7441384966621574244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41a0b6e446836414b911979dc97cea1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100

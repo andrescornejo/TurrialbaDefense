@@ -8,14 +8,14 @@ public class ShootCrop : MonoBehaviour
     private GameObject currentProjectile;
     public GameObject radialMenu, inventory;
     private RadialMenuInputHandler inputHandler;
-    private DetectFruitAddition inventoryManager;
+    private InventoryManager inventoryManager;
     public GameObject origin;
     public float force;
 
     // Start is called before the first frame update
     void Start()
     {
-        inventoryManager = inventory.GetComponent<DetectFruitAddition>();
+        inventoryManager = inventory.GetComponent<InventoryManager>();
         inputHandler = radialMenu.GetComponent<RadialMenuInputHandler>();
     }
 
