@@ -6,54 +6,55 @@ public class ShootCrop : MonoBehaviour
 {
 
     private GameObject currentProjectile;
-    public GameObject radialMenu, fruitBasket;
+    public GameObject radialMenu, inventory;
     private RadialMenuInputHandler inputHandler;
-    private DetectFruitAddition inventory;
-    private bool hasAmmo;
-    public GameObject cornObject, tomatoObject, turnipObject, pumpkinObject, origin;
+    private DetectFruitAddition inventoryManager;
+    public GameObject origin;
     public float force;
 
     // Start is called before the first frame update
     void Start()
     {
-        inventory = fruitBasket.GetComponent<DetectFruitAddition>();
+        inventoryManager = inventory.GetComponent<DetectFruitAddition>();
         inputHandler = radialMenu.GetComponent<RadialMenuInputHandler>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        switch (inputHandler.cropState)
-        {
-            case 1:
-                currentProjectile = cornObject;
-                hasAmmo = inventory.corn > 0;
-                break;
-			case 2:
-				currentProjectile = tomatoObject;
-                hasAmmo = inventory.tomato > 0;
-                break;
-			case 3:
-				currentProjectile = turnipObject;
-                hasAmmo = inventory.turnip > 0;
-                break;
-			case 4:
-				currentProjectile = pumpkinObject;
-                hasAmmo = inventory.pumpkin > 0;
-                break;
-        }
+
     }
 
-    public void shoot()
-    {
-        if(hasAmmo){ 
-            GameObject bullet = Instantiate(currentProjectile, origin.transform.position, transform.rotation);
-            bullet.GetComponent<Rigidbody>().AddForce(origin.transform.forward * force);
-         
-                bullet.GetComponent<Rigidbody>().AddForce(origin.transform.up * 50.5f);
-           
+    // Check the inventory for available ammo
+    private bool ammoAvailable()
+    {   
+        bool hasAmmo = false;
+        switch (inputHandler.currentCrop.tag)
+        {
+            case "Corn Fruit":
+                hasAmmo = inventoryManager.corn > 0;
+                break;
+			case "Tomato Fruit":
+                hasAmmo = inventoryManager.tomato > 0;
+                break;
+			case "Turnip Fruit":
+                hasAmmo = inventoryManager.turnip > 0;
+                break;
+			case "Pumpkin Fruit":
+                hasAmmo = inventoryManager.pumpkin > 0;
+                break;
+        }
+        return hasAmmo;
+    }
 
-            inventory.DecreaseAmmo(currentProjectile.tag);
+    // Add a force to a fruit and destro it after 3 seconds
+    public void shoot()
+    {   
+        if (ammoAvailable()){ 
+            GameObject bullet = Instantiate(inputHandler.currentCrop, origin.transform.position, transform.rotation);
+            bullet.GetComponent<Rigidbody>().AddForce(origin.transform.forward * force);
+            bullet.GetComponent<Rigidbody>().AddForce(origin.transform.up * 50.5f);
+            inventoryManager.DecreaseAmmo(inputHandler.currentCrop);
             Destroy(bullet, 3);
         }
     }

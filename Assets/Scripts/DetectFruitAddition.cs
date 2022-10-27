@@ -6,49 +6,48 @@ using TMPro;
 public class DetectFruitAddition : MonoBehaviour
 {
     public int corn, tomato, turnip, pumpkin;
-    public TMP_Text mText;
+    public TMP_Text ammoText;
+    public GameObject radialMenu;
+    private RadialMenuInputHandler inputHandler;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        inputHandler = radialMenu.GetComponent<RadialMenuInputHandler>();
+        DisplayCurrentAmmo(inputHandler.currentCrop);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
         if (!collision.gameObject.tag.Contains("Fruit")) return;
         switch (collision.gameObject.tag)
         {
             case "Corn Fruit":
                 corn++;
-                DisplayCurrentAmmo("Corn", corn);
                 break;
             case "Pumpkin Fruit":
                 pumpkin++;
-                DisplayCurrentAmmo("Pumpkin", pumpkin);
                 break;
             case "Turnip Fruit":
                 turnip++;
-                DisplayCurrentAmmo("Turnip", turnip);
                 break;
             case "Tomato Fruit":
                 tomato++;
-                DisplayCurrentAmmo("Tomato", tomato);
-                break;
-            default:
                 break;
         }
         Destroy(collision.gameObject);
+        DisplayCurrentAmmo(inputHandler.currentCrop);
     }
-    public void DecreaseAmmo(string ammoUsed)
+
+    public void DecreaseAmmo(GameObject currentCrop)
     {
-        switch (ammoUsed)
+        switch (currentCrop.tag)
         {
             case "Corn Fruit":
                 corn--;
@@ -62,13 +61,33 @@ public class DetectFruitAddition : MonoBehaviour
             case "Tomato Fruit":
                 tomato--;
                 break;
-            default:
-                break;
         }
+        DisplayCurrentAmmo(currentCrop);
     }
 
-    void DisplayCurrentAmmo(string ammoUpdated, int newAmount)
+    public void DisplayCurrentAmmo(GameObject currentCrop)
     {
-        mText.text = "Current Bullet\n" + ammoUpdated + ": "+newAmount;
+        string name = "Tomato";
+        int amount = tomato;
+        switch (currentCrop.tag)
+        {
+            case "Corn Fruit":
+                name = "Corn";
+                amount = corn;
+                break;
+            case "Pumpkin Fruit":
+                name = "Pumpkin";
+                amount = pumpkin;
+                break;
+            case "Turnip Fruit":
+                name = "Turnip";
+                amount = turnip;
+                break;
+            case "Tomato Fruit":
+                name = "Tomato";
+                amount = tomato;
+                break;
+        }
+        ammoText.text = name + ": "+ amount;
     }
 }

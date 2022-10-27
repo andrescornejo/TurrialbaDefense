@@ -8,20 +8,14 @@ public class RadialMenuInputHandler : MonoBehaviour
 {
     
     public InputActionProperty thumbstick;
-    public GameObject selectionIndicator;
-    // Holds the current state of the 4 available crops
-    /*
-        1 = tomato
-        2 = corn
-        3 = pumpkin
-        4 = turnip
-    */
-    [System.NonSerialized] public int cropState = 1;
+    public GameObject selectionIndicator, cornObject, tomatoObject, turnipObject, pumpkinObject;
+    [System.NonSerialized] public GameObject currentCrop;
 
     // Start is called before the first frame update
     void Start()
     {
         this.gameObject.SetActive(false);
+        currentCrop = tomatoObject;
     }
 
     // Update is called once per frame
@@ -35,33 +29,33 @@ public class RadialMenuInputHandler : MonoBehaviour
             thumbstick.action.ReadValue<Vector2>().x >= -0.5 &&
             thumbstick.action.ReadValue<Vector2>().y >= 0.5)
         {
-            // CORN position
+            // North position
             selectionIndicator.transform.localRotation = Quaternion.Euler(0, 0, 0);
-            cropState = 1;
+            currentCrop = tomatoObject;
         }
         else if (thumbstick.action.ReadValue<Vector2>().x <= 0.5 && 
                  thumbstick.action.ReadValue<Vector2>().x >= -0.5 &&
                  thumbstick.action.ReadValue<Vector2>().y <= -0.5)
         {
-            // TOMATO position
+            // South position
             selectionIndicator.transform.localRotation = Quaternion.Euler(0, 0, 180);
-            cropState = 3;
+            currentCrop = pumpkinObject;
         }
         else if (thumbstick.action.ReadValue<Vector2>().y <= 0.5 && 
                  thumbstick.action.ReadValue<Vector2>().y >= -0.5 &&
                  thumbstick.action.ReadValue<Vector2>().x >= 0.5)
         {
-            // TURNIP position
+            // East position
             selectionIndicator.transform.localRotation = Quaternion.Euler(0, 0, 270);
-            cropState = 4;
+            currentCrop = turnipObject;
         }
         else if (thumbstick.action.ReadValue<Vector2>().y <= 0.5 && 
                  thumbstick.action.ReadValue<Vector2>().y >= -0.5 &&
                  thumbstick.action.ReadValue<Vector2>().x <= -0.5)
         {
-            // PUMPKIN position
+            // West position
             selectionIndicator.transform.localRotation = Quaternion.Euler(0, 0, 90);
-            cropState = 2;
+            currentCrop = cornObject;
         }
     }
 }
