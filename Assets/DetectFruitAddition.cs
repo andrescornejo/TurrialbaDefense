@@ -67,8 +67,10 @@ public class DetectFruitAddition : MonoBehaviour
         }
     }
 
-    void DisplayCurrentAmmo(string ammoUpdated, int newAmount)
+    IEnumerator DisplayCurrentAmmo(string ammoUpdated, int newAmount)
     {
-        mText.text = "Current Bullet\n" + ammoUpdated + ": "+newAmount;
+        mText.text =  ammoUpdated + ": "+newAmount;
+        yield return new WaitForSeconds(2);
+        mText.text = "";
     }
 }
