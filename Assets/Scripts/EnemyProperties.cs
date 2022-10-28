@@ -10,11 +10,13 @@ public class EnemyProperties : MonoBehaviour
     private ProjectileProperties projectileProperties;
     public float speed;
     private bool walking = true;
+    [System.NonSerialized] public bool isDead;
 
     // Start is called before the first frame update
     void Start()
     {
         healthIndicator.text = "Health: " + health;
+        isDead = false;
     }
 
     // Update is called once per frame
@@ -36,6 +38,7 @@ public class EnemyProperties : MonoBehaviour
                 walking = false;
                 GetComponent<Animator>().Play("Base Layer.die");
                 Destroy(gameObject, 2);
+                isDead = true;
             }
             Destroy(collider.gameObject);
             healthIndicator.text = "Health: " + health;
