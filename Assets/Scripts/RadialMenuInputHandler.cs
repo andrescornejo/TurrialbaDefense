@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class RadialMenuInputHandler : MonoBehaviour
 {
-    
     public InputActionProperty thumbstick;
     public GameObject selectionIndicator, cornObject, tomatoObject, turnipObject, pumpkinObject;
     [System.NonSerialized] public GameObject currentCrop;
@@ -25,7 +25,7 @@ public class RadialMenuInputHandler : MonoBehaviour
         {
             return;
         }
-        if (thumbstick.action.ReadValue<Vector2>().x <= 0.5 && 
+        if (thumbstick.action.ReadValue<Vector2>().x <= 0.5 &&
             thumbstick.action.ReadValue<Vector2>().x >= -0.5 &&
             thumbstick.action.ReadValue<Vector2>().y >= 0.5)
         {
@@ -33,7 +33,7 @@ public class RadialMenuInputHandler : MonoBehaviour
             selectionIndicator.transform.localRotation = Quaternion.Euler(0, 0, 0);
             currentCrop = tomatoObject;
         }
-        else if (thumbstick.action.ReadValue<Vector2>().x <= 0.5 && 
+        else if (thumbstick.action.ReadValue<Vector2>().x <= 0.5 &&
                  thumbstick.action.ReadValue<Vector2>().x >= -0.5 &&
                  thumbstick.action.ReadValue<Vector2>().y <= -0.5)
         {
@@ -41,7 +41,7 @@ public class RadialMenuInputHandler : MonoBehaviour
             selectionIndicator.transform.localRotation = Quaternion.Euler(0, 0, 180);
             currentCrop = pumpkinObject;
         }
-        else if (thumbstick.action.ReadValue<Vector2>().y <= 0.5 && 
+        else if (thumbstick.action.ReadValue<Vector2>().y <= 0.5 &&
                  thumbstick.action.ReadValue<Vector2>().y >= -0.5 &&
                  thumbstick.action.ReadValue<Vector2>().x >= 0.5)
         {

@@ -177,7 +177,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &146885149
 PrefabInstance:
@@ -273,6 +273,36 @@ PrefabInstance:
     - target: {fileID: 6505550929628728017, guid: 543c3d885c55a0541b016ec781bee6e2,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6505550930019297570, guid: 543c3d885c55a0541b016ec781bee6e2,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6505550930019297570, guid: 543c3d885c55a0541b016ec781bee6e2,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6505550930019297570, guid: 543c3d885c55a0541b016ec781bee6e2,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6505550930019297570, guid: 543c3d885c55a0541b016ec781bee6e2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6505550930019297570, guid: 543c3d885c55a0541b016ec781bee6e2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6505550930019297570, guid: 543c3d885c55a0541b016ec781bee6e2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1070,7 +1100,7 @@ PrefabInstance:
     - target: {fileID: 6598815579406187027, guid: 9f5a24a380916d14db9775daab4fe333,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187027, guid: 9f5a24a380916d14db9775daab4fe333,
         type: 3}
@@ -1289,7 +1319,7 @@ GameObject:
   - component: {fileID: 1130839077}
   - component: {fileID: 1130839076}
   m_Layer: 0
-  m_Name: RoundHandler
+  m_Name: Round Handler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1912,7 +1942,7 @@ PrefabInstance:
     - target: {fileID: 4189723030933558205, guid: 6691b5177233b3b43b99ccd748c95bdb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4189723030933558205, guid: 6691b5177233b3b43b99ccd748c95bdb,
         type: 3}
@@ -2655,8 +2685,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
