@@ -695,6 +695,12 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
   m_PVRTiledBaking: 0
+--- !u!1 &267029260 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1148634717, guid: 6691b5177233b3b43b99ccd748c95bdb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1722463746}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &385114752
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,7 +863,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &422826051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1798,6 +1804,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1877871925}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1463261444 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2084715290, guid: 6691b5177233b3b43b99ccd748c95bdb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1722463746}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1465280158 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7688126621815278178, guid: 039d3495491355342b99c5e19ef6f655,
@@ -2074,6 +2086,16 @@ PrefabInstance:
       propertyPath: rightGrabRay
       value: 
       objectReference: {fileID: 1722463747}
+    - target: {fileID: 958893176119354204, guid: 6691b5177233b3b43b99ccd748c95bdb,
+        type: 3}
+      propertyPath: leftTeleportRay
+      value: 
+      objectReference: {fileID: 1463261444}
+    - target: {fileID: 958893176119354204, guid: 6691b5177233b3b43b99ccd748c95bdb,
+        type: 3}
+      propertyPath: rightTeleportRay
+      value: 
+      objectReference: {fileID: 267029260}
     - target: {fileID: 958893176119354204, guid: 6691b5177233b3b43b99ccd748c95bdb,
         type: 3}
       propertyPath: leftDirectInteractor
@@ -2968,7 +2990,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1965420610
 MonoBehaviour:
   m_ObjectHideFlags: 0
