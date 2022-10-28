@@ -9,18 +9,19 @@ public class EnemyProperties : MonoBehaviour
     public TMP_Text healthIndicator;
     private ProjectileProperties projectileProperties;
     public float speed;
-    private bool walking = true;
+    [System.NonSerialized] public bool isDead;
 
     // Start is called before the first frame update
     void Start()
     {
         healthIndicator.text = "Health: " + health;
+        isDead = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (walking) transform.Translate(-Vector3.forward * Time.deltaTime * speed);
+        if (!isDead) transform.Translate(-Vector3.forward * Time.deltaTime * speed);
     }
 
     // On collison with a fruit obtains the projectile properties from that fruit
@@ -33,7 +34,7 @@ public class EnemyProperties : MonoBehaviour
             health -= projectileProperties.damage;
             if (health <= 0) {
                 health = 0;
-                walking = false;
+                isDead = true;
                 GetComponent<Animator>().Play("Base Layer.die");
                 Destroy(gameObject, 2);
             }
