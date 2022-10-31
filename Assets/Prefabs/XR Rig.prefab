@@ -2832,6 +2832,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftGrabRay: {fileID: 0}
   rightGrabRay: {fileID: 0}
+  leftTeleportRay: {fileID: 0}
+  rightTeleportRay: {fileID: 0}
   leftDirectInteractor: {fileID: 0}
   rightDirectInteractor: {fileID: 0}
 --- !u!114 &67991508
