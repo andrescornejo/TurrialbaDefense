@@ -8,7 +8,7 @@ public class RoundHandler : MonoBehaviour
 {
     public GameObject enemyObject;
     public Transform spawner1, spawner2, spawner3, spawner4;
-    public TMP_Text timer;
+    public TMP_Text timer, helpMessages;
     private List<Transform> spawnPoints;
     private List<EnemyProperties> enemies;
     public int dayLengthSeconds, enemiesPerWave, waves;
@@ -39,16 +39,25 @@ public class RoundHandler : MonoBehaviour
 
     IEnumerator StartRound()
     {
+
+        helpMessages.text = "Apunte la mano derecha a la \nventana derecha y estripe el\nTrigger(dedo indice)\n\nAsi es como se dispara";
+        yield return new WaitForSeconds(15);
+        helpMessages.text = "Para cambiar de arma sostenga\nel boton donde su dedo gordo\nizquierdo se encuentra. \n\nEs alguno de los circulos con\nsuperficie suave y regular\n\nAhora con el Joystick derecho\nelija el arma por usar";
+        yield return new WaitForSeconds(25);
+        helpMessages.text = "En la pared de la izquierda\npuede ver las armas por emplear\n\nCon el boton del dedo\nderecho aparecen estas\n herramientas";
+        yield return new WaitForSeconds(17);
+        helpMessages.text = "Ahora salga de la casa\nLos enemigos quieren robarte!\n\nVe a Plantar y no permitas eso";
+
         // Countdown the day
         int countdown = dayLengthSeconds;
         while (countdown > 0){
-            timer.text = countdown + "s";
+            timer.text = countdown + "s para la próxima ronda";
             yield return new WaitForSeconds(1);
             countdown--;
         }
 
         // Start the night
-        timer.text = "Protect the seed!";
+        timer.text = "Protege la semilla!";
 
         // Spawn X enemies every 1 second in Y waves every 10 seconds
         for (int i = 0; i < waves; i++){
