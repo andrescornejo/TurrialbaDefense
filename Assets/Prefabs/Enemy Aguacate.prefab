@@ -794,7 +794,7 @@ GameObject:
   - component: {fileID: 1828228264990680466}
   - component: {fileID: 5285364395296718390}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy Aguacate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

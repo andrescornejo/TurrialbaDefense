@@ -60,8 +60,8 @@ public class ActivateTeleportRay : MonoBehaviour
             if (thumbstick.action.ReadValue<Vector2>() != Vector2.zero) 
                 return;
 
-            // The ray didnt hit
-            if (!rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit hit))
+            // The ray didnt hit a valid target
+            if (!rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit hit) || !rayInteractor.hasHover)
             {
                 teleportationRay.SetActive(false);
                 grabRay.SetActive(true);

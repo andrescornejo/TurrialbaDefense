@@ -51,13 +51,13 @@ public class RoundHandler : MonoBehaviour
         // Countdown the day
         int countdown = dayLengthSeconds;
         while (countdown > 0){
-            timer.text = "Tiempo para que inicie la ronda: "+countdown + "s";
+            timer.text = countdown + "s para la próxima ronda";
             yield return new WaitForSeconds(1);
             countdown--;
         }
 
         // Start the night
-        timer.text = "Protect the seed!";
+        timer.text = "Protege la semilla!";
 
         // Spawn X enemies every 1 second in Y waves every 10 seconds
         for (int i = 0; i < waves; i++){

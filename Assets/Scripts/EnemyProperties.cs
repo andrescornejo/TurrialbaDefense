@@ -32,20 +32,21 @@ public class EnemyProperties : MonoBehaviour
     {
         if (collider.gameObject.tag.Contains("Fruit"))
         {
-            Debug.Log(health);
             projectileProperties = collider.gameObject.GetComponent<ProjectileProperties>();
             health -= projectileProperties.damage;
-            GetComponent<Animator>().Play("Actions.GetHit");
-            gotHit = true;
-            
             if (health <= 0) {
                 health = 0;
                 isDead = true;
                 GetComponent<Animator>().Play("Actions.Die");
                 Destroy(gameObject, 2);
+            } else {
+                gotHit = true;
+                GetComponent<Animator>().Play("Actions.GetHit");
             }
             Destroy(collider.gameObject);
             healthIndicator.text = "Health: " + health;
+
+            // Let the hit animation complete
             yield return new WaitForSeconds(1.67f);
             gotHit = false;
         } 
