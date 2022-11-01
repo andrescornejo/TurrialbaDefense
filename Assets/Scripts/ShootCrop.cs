@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class ShootCrop : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class ShootCrop : MonoBehaviour
     private InventoryManager inventoryManager;
     public GameObject origin;
     public float force;
+    public XRDirectInteractor leftDirectInteractor;
+    public XRDirectInteractor rightDirectInteractor;
 
     // Start is called before the first frame update
     void Start()
@@ -47,10 +50,10 @@ public class ShootCrop : MonoBehaviour
         return hasAmmo;
     }
 
-    // Add a force to a fruit and destro it after 3 seconds
+    // Add a force to a fruit and destroy it after 3 seconds
     public void shoot()
     {   
-        if (ammoAvailable()){ 
+        if (ammoAvailable() && rightDirectInteractor.interactablesSelected.Count == 0){ 
             GameObject bullet = Instantiate(inputHandler.currentCrop, origin.transform.position, transform.rotation);
             bullet.GetComponent<Rigidbody>().AddForce(origin.transform.forward * force);
             bullet.GetComponent<Rigidbody>().AddForce(origin.transform.up * 50.5f);

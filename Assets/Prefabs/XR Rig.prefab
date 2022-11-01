@@ -2848,10 +2848,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c743ee14e87caf499203caa5893c5a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transformPivot: {fileID: 0}
-  weapon: {fileID: 0}
-  scythe: {fileID: 0}
-  hoe: {fileID: 0}
+  toolMenu: {fileID: 0}
+  origin: {fileID: 0}
 --- !u!1 &4189723032407240844
 GameObject:
   m_ObjectHideFlags: 0
