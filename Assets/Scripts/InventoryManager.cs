@@ -6,7 +6,8 @@ using TMPro;
 public class InventoryManager : MonoBehaviour
 {
     public int corn, tomato, turnip, pumpkin;
-    public TMP_Text ammoText;
+    public int cornSeeds, tomatoSeeds, turnipSeeds, pumpkinSeeds;
+    public TMP_Text ammoText, seedText;
     public GameObject radialMenu;
     private RadialMenuInputHandler inputHandler;
 
@@ -25,24 +26,38 @@ public class InventoryManager : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (!collider.gameObject.tag.Contains("Fruit")) return;
-        switch (collider.gameObject.tag)
-        {
-            case "Corn Fruit":
-                corn++;
-                break;
-            case "Pumpkin Fruit":
-                pumpkin++;
-                break;
-            case "Turnip Fruit":
-                turnip++;
-                break;
-            case "Tomato Fruit":
-                tomato++;
-                break;
+        if (collider.gameObject.tag.Contains("Fruit") || collider.gameObject.tag.Contains("Seed")){
+            switch (collider.gameObject.tag)
+            {
+                case "Corn Fruit":
+                    corn++;
+                    break;
+                case "Pumpkin Fruit":
+                    pumpkin++;
+                    break;
+                case "Turnip Fruit":
+                    turnip++;
+                    break;
+                case "Tomato Fruit":
+                    tomato++;
+                    break;
+                case "Corn Seed":
+                    cornSeeds++;
+                    break;
+                case "Pumpkin Seed":
+                    pumpkinSeeds++;
+                    break;
+                case "Turnip Seed":
+                    turnipSeeds++;
+                    break;
+                case "Tomato Seed":
+                    tomatoSeeds++;
+                    break;
+            }
+            Destroy(collider.gameObject);
+            DisplayCurrentAmmo(inputHandler.currentCrop);
+            DisplayCurrentSeed(inputHandler.currentSeed);
         }
-        Destroy(collider.gameObject);
-        DisplayCurrentAmmo(inputHandler.currentCrop);
     }
 
     public void DecreaseAmmo(GameObject currentCrop)
@@ -65,10 +80,30 @@ public class InventoryManager : MonoBehaviour
         DisplayCurrentAmmo(currentCrop);
     }
 
+    public void DecreaseSeeds(GameObject currentSeed)
+    {
+        switch (currentSeed.tag)
+        {
+            case "Corn Seed":
+                cornSeeds--;
+                break;
+            case "Pumpkin Seed":
+                pumpkinSeeds--;
+                break;
+            case "Turnip Seed":
+                turnipSeeds--;
+                break;
+            case "Tomato Seed":
+                tomatoSeeds--;
+                break;
+        }
+        DisplayCurrentSeed(currentSeed);
+    }
+
     public void DisplayCurrentAmmo(GameObject currentCrop)
     {
-        string name = "Tomato";
-        int amount = tomato;
+        string name = "Name";
+        int amount = 0;
         switch (currentCrop.tag)
         {
             case "Corn Fruit":
@@ -89,5 +124,26 @@ public class InventoryManager : MonoBehaviour
                 break;
         }
         ammoText.text = name + ": "+ amount;
+    }
+
+    public void DisplayCurrentSeed(GameObject currentSeed)
+    {
+        int amount = 0;
+        switch (currentSeed.tag)
+        {
+            case "Corn Seed":
+                amount = cornSeeds;
+                break;
+            case "Pumpkin Seed":
+                amount = pumpkinSeeds;
+                break;
+            case "Turnip Seed":
+                amount = turnipSeeds;
+                break;
+            case "Tomato Seed":
+                amount = tomatoSeeds;
+                break;
+        }
+        seedText.text = "Seeds: " + amount;
     }
 }

@@ -7,7 +7,7 @@ public class DropCrop : MonoBehaviour
 {
     public GameObject seedDropPrefab, cropDropPrefab;
     public int seedDropAmount, cropDropAmount, hitpoints;
-    private float spawnDelay = 0.5f;
+    private float spawnDelay = 0.1f;
 
     void Start()
     {
@@ -20,14 +20,13 @@ public class DropCrop : MonoBehaviour
         
     }
 
-    IEnumerator OnCollisionEnter(Collision collision){
-        if (collision.gameObject.tag == "Scythe") hitpoints--;
-        if (collision.gameObject.tag == "Scythe" && hitpoints == 0)
+    IEnumerator OnTriggerEnter(Collider collider){
+        if (collider.gameObject.tag == "Scythe") hitpoints--;
+        if (collider.gameObject.tag == "Scythe" && hitpoints == 0)
         {
-            // TODO: Refactor repeated code
-            float[] angles = {10, 30, 60, 90};  // This just could be a random within a range
-            LinkedList<float> anglesList = new LinkedList<float>(angles);
-            LinkedListNode<float> current = anglesList.First;
+            Vector3[] angles = {transform.right, transform.forward, transform.right*-1, transform.forward*-1};
+            LinkedList<Vector3> anglesList = new LinkedList<Vector3>(angles);
+            LinkedListNode<Vector3> current = anglesList.First;
 
            // Spawn the crops
             for(int counter=0; counter < cropDropAmount; counter++){
@@ -35,12 +34,11 @@ public class DropCrop : MonoBehaviour
                 GameObject drop = Instantiate(cropDropPrefab, transform.position, transform.rotation);
 
                 // Position at a proper upper point
-                drop.transform.Translate(0.0f, 1.0f, 0.0f);
-                drop.transform.Rotate(0.0f, current.Value, 0.0f, Space.Self);
+                drop.transform.Translate(0.0f, 1.2f, 0.0f);
 
                 // Apply force to the object
-                drop.GetComponent<Rigidbody>().AddForce(transform.up * 200);
-                drop.GetComponent<Rigidbody>().AddForce(transform.right * 50);                
+                drop.GetComponent<Rigidbody>().AddForce(transform.up * 500);
+                drop.GetComponent<Rigidbody>().AddForce(current.Value * 200);                
 
                 current = current.Next ?? current.List.First;
             }
@@ -51,12 +49,11 @@ public class DropCrop : MonoBehaviour
                 GameObject drop = Instantiate(seedDropPrefab, transform.position, transform.rotation);
 
                 // Position at a proper upper point
-                drop.transform.Translate(0.0f, 1.0f, 0.0f);
-                drop.transform.Rotate(0.0f, current.Value, 0.0f, Space.Self);
+                drop.transform.Translate(0.0f, 1.2f, 0.0f);
 
                 // Apply force to the object
-                drop.GetComponent<Rigidbody>().AddForce(transform.up * 200);
-                drop.GetComponent<Rigidbody>().AddForce(transform.right * 50);                
+                drop.GetComponent<Rigidbody>().AddForce(transform.up * 500);
+                drop.GetComponent<Rigidbody>().AddForce(current.Value * 200);                
 
                 current = current.Next ?? current.List.First;
             }

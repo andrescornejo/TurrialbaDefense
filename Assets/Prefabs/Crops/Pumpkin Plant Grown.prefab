@@ -108,7 +108,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8494318350627953091}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.070711255, y: 0.3730822, z: 0.10056658}
@@ -131,4 +131,4 @@ MonoBehaviour:
     type: 3}
   seedDropAmount: 1
   cropDropAmount: 1
-  hitpoints: 3
+  hitpoints: 1
