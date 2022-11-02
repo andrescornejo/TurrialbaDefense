@@ -28,7 +28,8 @@ public class RoundHandler : MonoBehaviour
     }
 
     // Check if there are no enemies alive
-    private bool AllEnemiesDead(){
+    private bool AllEnemiesDead()
+    {
         foreach (var enemy in enemies){
             if (!enemy.isDead){
                 return false;
@@ -37,7 +38,7 @@ public class RoundHandler : MonoBehaviour
         return true;
     }
 
-    IEnumerator StartRound()
+    private IEnumerator StartRound()
     {
 
         helpMessages.text = "Apunte la mano derecha a la \nventana derecha y estripe el\nTrigger(dedo indice)\n\nAsi es como se dispara";

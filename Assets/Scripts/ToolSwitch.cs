@@ -1,17 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class ToolSwitch : MonoBehaviour
 {
-    public GameObject toolMenu, origin;
+    public GameObject toolMenuObject, origin;
+    private GameObject currentToolMenu;
 
-    // Instatiates, deactivates and adds all the tools to the list
+    // Start is called before the first frame update
     void Start()
     {        
-
+        toolMenuObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -20,13 +20,15 @@ public class ToolSwitch : MonoBehaviour
 
     }
 
-    // Deactivates the current tool and activates the next one in the list
-    public void UpdateMenuPosition()
+    public void ActivateMenu()
     {   
-        toolMenu.transform.position = origin.transform.position;
-        toolMenu.transform.rotation = origin.transform.rotation;
-        // foreach (Transform child in transform){
-        //     child.gameObject.GetComponent<Rigidbody>().useGravity = false;
-        // }
+        Destroy(currentToolMenu);
+        currentToolMenu = Instantiate(toolMenuObject, origin.transform.position, origin.transform.rotation);
+        currentToolMenu.SetActive(true);
+    }
+
+    public void DeactivateMenu()
+    {
+        currentToolMenu.SetActive(false);
     }
 }
