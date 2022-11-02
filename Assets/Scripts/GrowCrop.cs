@@ -31,17 +31,16 @@ public class GrowCrop : MonoBehaviour
     // After the specified time, destroys the growing crop and creates a grown crop
     IEnumerator OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.tag == "Seed" && growingCrop == null && grownCrop == null)
+        if (collider.gameObject.tag.Contains("Seed") && growingCrop == null && grownCrop == null)
         {
             cropProperties = collider.gameObject.GetComponent<CropProperties>();
-            Destroy(collider.gameObject, 1);
-            yield return new WaitForSeconds(1);
             growingCrop = Instantiate(cropProperties.growingCropPrefab, transform.position, transform.rotation);
-            InvokeRepeating("IncreaseScale", 0f, cropProperties.growthRate);
-            Destroy(growingCrop, cropProperties.growthTimeSeconds);
+            Destroy(collider.gameObject);
+            InvokeRepeating("IncreaseScale", 2, cropProperties.growthRate);
             yield return new WaitForSeconds(cropProperties.growthTimeSeconds);
             CancelInvoke("IncreaseScale");
             grownCrop = Instantiate(cropProperties.grownCropPrefab, transform.position, transform.rotation);
+            Destroy(growingCrop);
             seedGrew = true;
         } 
     }

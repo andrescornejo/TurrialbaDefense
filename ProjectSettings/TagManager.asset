@@ -4,15 +4,17 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Seed
   - Hoe
   - Weapon
   - Scythe
-  - Fruit
   - Corn Fruit
   - Turnip Fruit
   - Tomato Fruit
   - Pumpkin Fruit
+  - Corn Seed
+  - Tomato Seed
+  - Pumpkin Seed
+  - Turnip Seed
   layers:
   - Default
   - TransparentFX

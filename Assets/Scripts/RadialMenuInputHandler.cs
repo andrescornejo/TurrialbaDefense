@@ -9,13 +9,15 @@ public class RadialMenuInputHandler : MonoBehaviour
 {
     public InputActionProperty thumbstick;
     public GameObject selectionIndicator, cornObject, tomatoObject, turnipObject, pumpkinObject;
-    [System.NonSerialized] public GameObject currentCrop;
+    public GameObject cornSeedObject, tomatoSeedObject, turnipSeedObject, pumpkinSeedObject;
+    [System.NonSerialized] public GameObject currentCrop, currentSeed;
 
     // Start is called before the first frame update
     void Start()
     {
         this.gameObject.SetActive(false);
         currentCrop = tomatoObject;
+        currentSeed = tomatoSeedObject;
     }
 
     // Update is called once per frame
@@ -32,6 +34,7 @@ public class RadialMenuInputHandler : MonoBehaviour
             // North position
             selectionIndicator.transform.localRotation = Quaternion.Euler(0, 0, 0);
             currentCrop = tomatoObject;
+            currentSeed = tomatoSeedObject;
         }
         else if (thumbstick.action.ReadValue<Vector2>().x <= 0.5 &&
                  thumbstick.action.ReadValue<Vector2>().x >= -0.5 &&
@@ -40,6 +43,7 @@ public class RadialMenuInputHandler : MonoBehaviour
             // South position
             selectionIndicator.transform.localRotation = Quaternion.Euler(0, 0, 180);
             currentCrop = pumpkinObject;
+            currentSeed = pumpkinSeedObject;
         }
         else if (thumbstick.action.ReadValue<Vector2>().y <= 0.5 &&
                  thumbstick.action.ReadValue<Vector2>().y >= -0.5 &&
@@ -48,6 +52,7 @@ public class RadialMenuInputHandler : MonoBehaviour
             // East position
             selectionIndicator.transform.localRotation = Quaternion.Euler(0, 0, 270);
             currentCrop = turnipObject;
+            currentSeed = turnipSeedObject;
         }
         else if (thumbstick.action.ReadValue<Vector2>().y <= 0.5 && 
                  thumbstick.action.ReadValue<Vector2>().y >= -0.5 &&
@@ -56,6 +61,7 @@ public class RadialMenuInputHandler : MonoBehaviour
             // West position
             selectionIndicator.transform.localRotation = Quaternion.Euler(0, 0, 90);
             currentCrop = cornObject;
+            currentSeed = cornSeedObject;
         }
     }
 }
