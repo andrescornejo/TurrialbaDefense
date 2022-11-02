@@ -16,6 +16,7 @@ public class InventoryManager : MonoBehaviour
     {
         inputHandler = radialMenu.GetComponent<RadialMenuInputHandler>();
         DisplayCurrentAmmo(inputHandler.currentCrop);
+        DisplayCurrentSeed(inputHandler.currentSeed);
     }
 
     // Update is called once per frame

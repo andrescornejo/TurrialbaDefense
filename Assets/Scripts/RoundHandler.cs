@@ -41,7 +41,7 @@ public class RoundHandler : MonoBehaviour
     private IEnumerator StartRound()
     {
 
-        helpMessages.text = "Apunte la mano derecha a la \nventana derecha y estripe el\nTrigger(dedo indice)\n\nAsi es como se dispara";
+        helpMessages.text = "Apunte la mano derecha a la \nventana derecha y presione el\nTrigger(dedo indice)\n\nAsi es como se dispara";
         yield return new WaitForSeconds(15);
         helpMessages.text = "Para cambiar de arma sostenga\nel boton donde su dedo gordo\nizquierdo se encuentra. \n\nEs alguno de los circulos con\nsuperficie suave y regular\n\nAhora con el Joystick derecho\nelija el arma por usar";
         yield return new WaitForSeconds(25);
