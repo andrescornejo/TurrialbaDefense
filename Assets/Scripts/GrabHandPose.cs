@@ -21,7 +21,7 @@ public class GrabHandPose : MonoBehaviour
 
     public void SetUpPose(BaseInteractionEventArgs arg)
     {
-        if (arg.interactable is XRDirectInteractor)
+        if (arg.interactableObject is XRDirectInteractor)
         {
             HandData handData = arg.interactorObject.transform.GetComponentInChildren<HandData>();
             handData.animator.enabled = false;
