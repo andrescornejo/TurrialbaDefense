@@ -50,6 +50,18 @@ public class EnemyProperties : MonoBehaviour
             yield return new WaitForSeconds(1.67f);
             gotHit = false;
         } 
+        if (collider.gameObject.tag.Contains("Seed"))
+        {
+            health -= 1;
+            if (health <= 0) {
+                health = 0;
+                isDead = true;
+                GetComponent<Animator>().Play("Actions.Die");
+                Destroy(gameObject, 2);
+            } 
+            Destroy(collider.gameObject);
+            healthIndicator.text = "Health: " + health;
+        } 
     }
 }
 
