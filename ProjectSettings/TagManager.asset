@@ -8,6 +8,11 @@ TagManager:
   - Hoe
   - Weapon
   - Scythe
+  - Fruit
+  - Corn Fruit
+  - Turnip Fruit
+  - Tomato Fruit
+  - Pumpkin Fruit
   layers:
   - Default
   - TransparentFX

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8431076748957457445}
   - component: {fileID: 8494470636636250629}
   - component: {fileID: 1078977192198613852}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pumpkin Plant Grown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,9 +125,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd545c2146a6f5f46a3423f5f36744b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seedDropPrefab: {fileID: 0}
+  seedDropPrefab: {fileID: 4009136079514163937, guid: 11b226c7c5316f342b3981c751c17557,
+    type: 3}
   cropDropPrefab: {fileID: 7441384966621574244, guid: 6a9626c2dc55a894b9e7f86376a9605a,
     type: 3}
-  seedDropAmount: 0
+  seedDropAmount: 1
   cropDropAmount: 1
-  hitpoints: 2
+  hitpoints: 3

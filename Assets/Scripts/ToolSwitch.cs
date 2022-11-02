@@ -1,33 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.XR;
-using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class ToolSwitch : MonoBehaviour
 {
-    LinkedList<GameObject> toolList = new LinkedList<GameObject>();
-    LinkedListNode<GameObject> currentTool;
-    public Transform transformPivot;
-    public GameObject weapon, scythe, hoe;
+    public GameObject toolMenuObject, origin;
+    private GameObject currentToolMenu;
 
-    // Instatiates, deactivates and adds all the tools to the list
+    // Start is called before the first frame update
     void Start()
     {        
-        GameObject tempObject = Instantiate(weapon, transformPivot.position, transform.rotation);
-        tempObject.SetActive(false);
-        toolList.AddLast(tempObject);
-
-        tempObject = Instantiate(scythe, transformPivot.position, transform.rotation);
-        tempObject.SetActive(false);
-        toolList.AddLast(tempObject);
-
-        tempObject = Instantiate(hoe, transformPivot.position, transform.rotation);
-        tempObject.SetActive(false);
-        toolList.AddLast(tempObject);
-         
-        currentTool = toolList.First;
+        toolMenuObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -36,14 +20,15 @@ public class ToolSwitch : MonoBehaviour
 
     }
 
-    // Deactivates the current tool and activates the next one in the list
-    public void OnToolSwitch()
+    public void ActivateMenu()
     {   
-        currentTool.Value.SetActive(false);
-        currentTool = currentTool.Next ?? toolList.First;
-        currentTool.Value.SetActive(true);
-        currentTool.Value.transform.position = new Vector3(transformPivot.position.x, transformPivot.position.y, transformPivot.position.z);
-        currentTool.Value.transform.Translate(transformPivot.forward * 0.3f, Space.Self);
-        currentTool.Value.transform.Translate(transformPivot.up * 1.5f, Space.Self);
+        Destroy(currentToolMenu);
+        currentToolMenu = Instantiate(toolMenuObject, origin.transform.position, origin.transform.rotation);
+        currentToolMenu.SetActive(true);
+    }
+
+    public void DeactivateMenu()
+    {
+        currentToolMenu.SetActive(false);
     }
 }

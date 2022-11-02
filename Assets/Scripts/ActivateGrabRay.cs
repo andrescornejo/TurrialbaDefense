@@ -5,8 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class ActivateGrabRay : MonoBehaviour
 {
-    public GameObject leftGrabRay;
-    public GameObject rightGrabRay;
+    public GameObject leftGrabRay, rightGrabRay, leftTeleportRay, rightTeleportRay;
 
     public XRDirectInteractor leftDirectInteractor;
     public XRDirectInteractor rightDirectInteractor;
@@ -20,7 +19,7 @@ public class ActivateGrabRay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        leftGrabRay.SetActive(leftDirectInteractor.interactablesSelected.Count == 0);
-        rightGrabRay.SetActive(rightDirectInteractor.interactablesSelected.Count == 0);
+        leftGrabRay.SetActive(leftDirectInteractor.interactablesSelected.Count == 0 && !leftTeleportRay.activeSelf);
+        rightGrabRay.SetActive(rightDirectInteractor.interactablesSelected.Count == 0 && !rightTeleportRay.activeSelf);
     }
 }
