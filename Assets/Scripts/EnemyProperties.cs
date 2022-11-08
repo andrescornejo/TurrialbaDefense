@@ -10,6 +10,7 @@ public class EnemyProperties : MonoBehaviour
     private ProjectileProperties projectileProperties;
     public float speed;
     private bool gotHit;
+    [System.NonSerialized] public ScoreHandler scoreHandler;
     [System.NonSerialized] public bool isDead;
 
     // Start is called before the first frame update
@@ -22,15 +23,15 @@ public class EnemyProperties : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (!isDead && !gotHit) transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        if (!isDead && !gotHit && !scoreHandler.gameOver) transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        if (scoreHandler.gameOver) GetComponent<Animator>().Play("Actions.Idle");
     }
 
     // On collison with a fruit obtains the projectile properties from that fruit
     // Then, destroys the fruit and applies the damage
     IEnumerator OnTriggerEnter(Collider collider)
     {
-        if (collider.gameObject.tag.Contains("Fruit"))
+        if (!scoreHandler.gameOver && (collider.gameObject.tag.Contains("Fruit") || collider.gameObject.tag.Contains("Seed")))
         {
             projectileProperties = collider.gameObject.GetComponent<ProjectileProperties>();
             health -= projectileProperties.damage;
@@ -47,20 +48,8 @@ public class EnemyProperties : MonoBehaviour
             healthIndicator.text = "Health: " + health;
 
             // Let the hit animation complete
-            yield return new WaitForSeconds(1.67f);
+            yield return new WaitForSeconds(1);
             gotHit = false;
-        } 
-        if (collider.gameObject.tag.Contains("Seed"))
-        {
-            health -= 1;
-            if (health <= 0) {
-                health = 0;
-                isDead = true;
-                GetComponent<Animator>().Play("Actions.Die");
-                Destroy(gameObject, 2);
-            } 
-            Destroy(collider.gameObject);
-            healthIndicator.text = "Health: " + health;
         } 
     }
 }

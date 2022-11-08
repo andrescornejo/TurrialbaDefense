@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2040116409638546288}
   - component: {fileID: 2040116409638546286}
   - component: {fileID: 2040116409638546289}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Health Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 2040116409980600948}
   - component: {fileID: 2040116409980600951}
   - component: {fileID: 2040116409980600950}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2197,10 +2197,12 @@ GameObject:
   - component: {fileID: 7542354165816449477}
   - component: {fileID: 7542354165809002027}
   - component: {fileID: 2040116409020899360}
+  - component: {fileID: -5955324727517178486}
+  - component: {fileID: -1589590678733672019}
   - component: {fileID: 2040116409020899359}
   m_Layer: 0
   m_Name: Enemy Dog
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2254,8 +2256,37 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.4, z: 1}
-  m_Center: {x: 0, y: 0.75, z: 0}
+  m_Size: {x: 0.69898164, y: 1.4, z: 0.70678896}
+  m_Center: {x: -0.030296033, y: 0.6, z: 0.00862203}
+--- !u!65 &-5955324727517178486
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7542354165816280549}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.61184657, y: 1.4, z: 0.59131557}
+  m_Center: {x: -0.03190045, y: 0.6, z: -0.015837597}
+--- !u!54 &-1589590678733672019
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7542354165816280549}
+  serializedVersion: 2
+  m_Mass: 50
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
 --- !u!114 &2040116409020899359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2662,6 +2693,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sword
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9ef625d01f79b4e4eb62fcdf032954ca, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9ef625d01f79b4e4eb62fcdf032954ca, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2728,6 +2763,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 588cb1a3084bba747b81631d0c071523, type: 3}
       propertyPath: m_Name
       value: Shield
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 588cb1a3084bba747b81631d0c071523, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 588cb1a3084bba747b81631d0c071523, type: 3}
       propertyPath: m_RootOrder

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8617116677784223334}
   - component: {fileID: 8617116677784223335}
   - component: {fileID: 3591924140225121536}
+  - component: {fileID: -7707324851322915268}
   m_Layer: 7
   m_Name: Tomato Seed
   m_TagString: Tomato Seed
@@ -256,3 +257,16 @@ MonoBehaviour:
     type: 3}
   growthTimeSeconds: 5
   maxSize: {x: 1, y: 1.5, z: 0.5}
+--- !u!114 &-7707324851322915268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8617116677784223332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41a0b6e446836414b911979dc97cea1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1

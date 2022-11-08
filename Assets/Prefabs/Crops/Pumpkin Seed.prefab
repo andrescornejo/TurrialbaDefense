@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4009136079514163939}
   - component: {fileID: 4009136079514163938}
   - component: {fileID: 8209048417726114181}
+  - component: {fileID: 4228943136194645264}
   m_Layer: 7
   m_Name: Pumpkin Seed
   m_TagString: Pumpkin Seed
@@ -256,3 +257,16 @@ MonoBehaviour:
     type: 3}
   growthTimeSeconds: 5
   maxSize: {x: 1, y: 0.7, z: 0.7}
+--- !u!114 &4228943136194645264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4009136079514163937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41a0b6e446836414b911979dc97cea1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1

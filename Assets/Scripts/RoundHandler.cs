@@ -11,13 +11,15 @@ public class RoundHandler : MonoBehaviour
     public TMP_Text timer, helpMessages;
     private List<Transform> spawnPoints;
     private List<EnemyProperties> enemies;
-    public int dayLengthSeconds, enemiesPerWave, waves;
+    public int dayLengthSeconds, enemiesPerWave, waves, increasePerRound;
+    public ScoreHandler scoreHandler;
 
     // Start is called before the first frame update
     void Start()
     {
         spawnPoints = new List<Transform> { spawner1, spawner2, spawner3, spawner4 };
         enemies = new List<EnemyProperties>();
+        //Instructions();
         StartCoroutine(StartRound());
     }
 
@@ -38,9 +40,8 @@ public class RoundHandler : MonoBehaviour
         return true;
     }
 
-    private IEnumerator StartRound()
+    private IEnumerator Instructions()
     {
-
         helpMessages.text = "Apunte la mano derecha a la \nventana derecha y presione el\nTrigger(dedo indice)\n\nAsi es como se dispara";
         yield return new WaitForSeconds(15);
         helpMessages.text = "Para cambiar de arma sostenga\nel boton donde su dedo gordo\nizquierdo se encuentra. \n\nEs alguno de los circulos con\nsuperficie suave y regular\n\nAhora con el Joystick derecho\nelija el arma por usar";
@@ -48,7 +49,10 @@ public class RoundHandler : MonoBehaviour
         helpMessages.text = "En la pared de la izquierda\npuede ver las armas por emplear\n\nCon el boton del dedo\nderecho aparecen estas\n herramientas";
         yield return new WaitForSeconds(17);
         helpMessages.text = "Ahora salga de la casa\nLos enemigos quieren robarte!\n\nVe a Plantar y no permitas eso";
+    }
 
+    private IEnumerator StartRound()
+    {
         // Countdown the day
         int countdown = dayLengthSeconds;
         while (countdown > 0){
@@ -63,12 +67,14 @@ public class RoundHandler : MonoBehaviour
         // Spawn X enemies every 1 second in Y waves every 10 seconds
         for (int i = 0; i < waves; i++){
             for (int j = 0; j < enemiesPerWave; j++){
+                if (scoreHandler.gameOver) break;
                 var spawnPoint = spawnPoints[UnityEngine.Random.Range(0, 4)];
                 int xOffset = UnityEngine.Random.Range(-2,3);
                 int zOffset = UnityEngine.Random.Range(-2,3);
                 var position = new Vector3(spawnPoint.position.x + xOffset, spawnPoint.position.y, spawnPoint.position.z + zOffset);
                 var enemy = Instantiate(enemyObject, position, spawnPoint.rotation);
                 enemy.SetActive(true);
+                enemy.GetComponent<EnemyProperties>().scoreHandler = scoreHandler;
                 enemies.Add(enemy.GetComponent<EnemyProperties>());
                 yield return new WaitForSeconds(1);
             }
@@ -82,5 +88,6 @@ public class RoundHandler : MonoBehaviour
 
         // Reset the round
         enemies = new List<EnemyProperties>();
+        enemiesPerWave += increasePerRound;
     }
 }

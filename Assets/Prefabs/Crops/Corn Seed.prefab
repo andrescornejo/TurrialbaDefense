@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5702415780389512160}
   - component: {fileID: 5702415780389512161}
   - component: {fileID: 678982512975417478}
+  - component: {fileID: 2437822427928750041}
   m_Layer: 7
   m_Name: Corn Seed
   m_TagString: Corn Seed
@@ -256,3 +257,16 @@ MonoBehaviour:
     type: 3}
   growthTimeSeconds: 5
   maxSize: {x: 1, y: 1.5, z: 0.5}
+--- !u!114 &2437822427928750041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5702415780389512162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41a0b6e446836414b911979dc97cea1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
