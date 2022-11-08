@@ -6,14 +6,14 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class ActivateGrabRay : MonoBehaviour
 {
     public GameObject leftGrabRay, rightGrabRay, leftTeleportRay, rightTeleportRay;
-
     public XRDirectInteractor leftDirectInteractor;
     public XRDirectInteractor rightDirectInteractor;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        leftGrabRay.SetActive(false);
+        rightGrabRay.SetActive(false);
     }
 
     // Update is called once per frame

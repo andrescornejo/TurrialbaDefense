@@ -36,7 +36,7 @@ public class ActivateTeleportRay : MonoBehaviour
                 if (!teleportCanceled)
                 {
                     teleportationRay.SetActive(true);
-                    grabRay.SetActive(false);
+                    //grabRay.SetActive(false);
                 }
             } 
             else
@@ -53,7 +53,7 @@ public class ActivateTeleportRay : MonoBehaviour
                 thumbstick.action.ReadValue<Vector2>().y < 0)
             {
                 teleportationRay.SetActive(false);
-                grabRay.SetActive(true);
+                //grabRay.SetActive(true);
                 return;
             }
 
@@ -64,7 +64,7 @@ public class ActivateTeleportRay : MonoBehaviour
             if (!rayInteractor.TryGetCurrent3DRaycastHit(out RaycastHit hit) || !rayInteractor.hasHover)
             {
                 teleportationRay.SetActive(false);
-                grabRay.SetActive(true);
+                //grabRay.SetActive(true);
                 return;
             }   
 
@@ -75,14 +75,14 @@ public class ActivateTeleportRay : MonoBehaviour
 
             provider.QueueTeleportRequest(request);
             teleportationRay.SetActive(false);
-            grabRay.SetActive(true);
+            //grabRay.SetActive(true);
         }
     }
 
     void OnTeleportCancel(InputAction.CallbackContext context)
     {
         teleportationRay.SetActive(false);
-        grabRay.SetActive(true);
+        //grabRay.SetActive(true);
         teleportCanceled = true;
     }
 }

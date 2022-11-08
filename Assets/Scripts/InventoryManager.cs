@@ -15,14 +15,25 @@ public class InventoryManager : MonoBehaviour
     void Start()
     {
         inputHandler = radialMenu.GetComponent<RadialMenuInputHandler>();
-        DisplayCurrentAmmo(inputHandler.currentCrop);
-        DisplayCurrentSeed(inputHandler.currentSeed);
     }
 
     // Update is called once per frame
     void Update()
     {
+        DisplayCurrentAmmo(inputHandler.currentCrop);
+        DisplayCurrentSeed(inputHandler.currentSeed);
+    }
 
+    public void ResetInventory()
+    {
+        corn = 0;
+        tomato = 20;
+        turnip = 0;
+        pumpkin = 0;
+        cornSeeds = 20;
+        tomatoSeeds = 50;
+        turnipSeeds = 10;
+        pumpkinSeeds = 6;
     }
 
     void OnTriggerEnter(Collider collider)
@@ -56,8 +67,6 @@ public class InventoryManager : MonoBehaviour
                     break;
             }
             Destroy(collider.gameObject);
-            DisplayCurrentAmmo(inputHandler.currentCrop);
-            DisplayCurrentSeed(inputHandler.currentSeed);
         }
     }
 
@@ -78,7 +87,6 @@ public class InventoryManager : MonoBehaviour
                 tomato--;
                 break;
         }
-        DisplayCurrentAmmo(currentCrop);
     }
 
     public void DecreaseSeeds(GameObject currentSeed)
@@ -98,7 +106,6 @@ public class InventoryManager : MonoBehaviour
                 tomatoSeeds--;
                 break;
         }
-        DisplayCurrentSeed(currentSeed);
     }
 
     public void DisplayCurrentAmmo(GameObject currentCrop)
