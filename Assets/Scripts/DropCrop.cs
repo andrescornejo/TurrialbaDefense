@@ -7,7 +7,7 @@ public class DropCrop : MonoBehaviour
 {
     public GameObject seedDropPrefab, cropDropPrefab;
     public int seedDropAmount, cropDropAmount, hitpoints;
-    private float spawnDelay = 0.1f;
+    private float dropDelay = 0.1f;
 
     void Start()
     {
@@ -30,7 +30,7 @@ public class DropCrop : MonoBehaviour
 
            // Spawn the crops
             for(int counter=0; counter < cropDropAmount; counter++){
-                yield return new WaitForSeconds(spawnDelay);
+                yield return new WaitForSeconds(dropDelay);
                 GameObject drop = Instantiate(cropDropPrefab, transform.position, transform.rotation);
 
                 // Position at a proper upper point
@@ -45,7 +45,7 @@ public class DropCrop : MonoBehaviour
 
             // Spawn the seeds
             for(int counter=0; counter < seedDropAmount; counter++){
-                yield return new WaitForSeconds(spawnDelay);
+                yield return new WaitForSeconds(dropDelay);
                 GameObject drop = Instantiate(seedDropPrefab, transform.position, transform.rotation);
 
                 // Position at a proper upper point

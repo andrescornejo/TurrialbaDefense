@@ -25,6 +25,7 @@ public class TutorialProgress : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
+        if (tutorialHandler.skipTutorial) return;
         if (collider.gameObject.tag.Contains("Fruit") || collider.gameObject.tag.Contains("Seed"))
         {
             if (!isPrevious){

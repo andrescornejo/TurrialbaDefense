@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class TutorialHandler : MonoBehaviour
 {
     public TMP_Text tutorial;
+    public RoundHandler roundHandler;
+    public InventoryManager inventory;
+    public bool skipTutorial;
     [System.NonSerialized] public int currentMessage;
     [System.NonSerialized] public List<string> messages;
 
@@ -18,9 +22,14 @@ public class TutorialHandler : MonoBehaviour
         string message2 = "Mantenga presionado el boton A y aproxime su mano derecha a una herramienta. Para agarrarla presione una vez el grab derecho y luego suelte A. Para soltarla presione el grab derecho otra vez. \n\nLos usos de las herramientas se pueden ver en la pared izquierda.";
         string message3 = "Para plantar acerquese a una base de plantación y are la tierra tocandola con la azada. Cuando la tierra haya cambiado puede disparar una semilla. Una vez que la planta haya crecido a su máxima altura la puede cortar con la guadaña";
         string message4 = "Los objetos que caigan al suelo se colectan con solo aproximarse al jugador. Hay un tiempo limitado para plantar y recolectar municiones para disparar antes de que lleguen los enemigos. No deje que lleguen a la casa! \n\nDispare una vez más para comenzar";
-        string[] msgs = {message0, message1, message2, message3, message4, messageStart};
-        messages = new List<string>(msgs);
-        currentMessage = 0;
+        messages = new List<string> {message0, message1, message2, message3, message4, messageStart};
+        if (skipTutorial){
+            inventory.ResetInventory();
+            StartCoroutine(roundHandler.StartRound());
+            currentMessage = messages.Count - 1;
+        } else {
+            currentMessage = 0;
+        }
     }
 
     // Update is called once per frame

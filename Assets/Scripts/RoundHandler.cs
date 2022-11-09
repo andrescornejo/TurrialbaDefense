@@ -5,10 +5,11 @@ using TMPro;
 
 public class RoundHandler : MonoBehaviour
 {
-    public GameObject enemyObject;
+    public GameObject enemyObject1, enemyObject2, enemyObject3, enemyObject4;
     public Transform spawner1, spawner2, spawner3, spawner4;
     public TMP_Text timer;
     private List<Transform> spawnPoints;
+    private List<GameObject> enemyObjects;
     private List<EnemyProperties> enemies;
     public int dayLengthSeconds, enemiesPerWave, waves, increasePerRound;
     public ScoreHandler scoreHandler;
@@ -17,6 +18,7 @@ public class RoundHandler : MonoBehaviour
     void Start()
     {
         spawnPoints = new List<Transform> { spawner1, spawner2, spawner3, spawner4 };
+        enemyObjects = new List<GameObject> {enemyObject1, enemyObject2, enemyObject3, enemyObject4};
         enemies = new List<EnemyProperties>();
     }
 
@@ -50,7 +52,7 @@ public class RoundHandler : MonoBehaviour
         // Start the night
         timer.text = "Protege la casa!";
 
-        // Spawn X enemies every 1 second in Y waves every 20 seconds
+        // Spawn X enemies every 2 second in Y waves every 20 seconds
         for (int i = 0; i < waves; i++){
             for (int j = 0; j < enemiesPerWave; j++){
                 if (scoreHandler.gameOver) break;
@@ -58,11 +60,12 @@ public class RoundHandler : MonoBehaviour
                 int xOffset = UnityEngine.Random.Range(-2,3);
                 int zOffset = UnityEngine.Random.Range(-2,3);
                 var position = new Vector3(spawnPoint.position.x + xOffset, spawnPoint.position.y, spawnPoint.position.z + zOffset);
+                var enemyObject = enemyObjects[UnityEngine.Random.Range(0, 4)];
                 var enemy = Instantiate(enemyObject, position, spawnPoint.rotation);
                 enemy.SetActive(true);
                 enemy.GetComponent<EnemyProperties>().scoreHandler = scoreHandler;
                 enemies.Add(enemy.GetComponent<EnemyProperties>());
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(2);
             }
             yield return new WaitForSeconds(20);
         }
