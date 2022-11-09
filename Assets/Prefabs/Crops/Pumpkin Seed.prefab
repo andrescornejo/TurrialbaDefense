@@ -255,7 +255,7 @@ MonoBehaviour:
     type: 3}
   grownCropPrefab: {fileID: 8494318350627953091, guid: 600ff3d483ce3264e95fb37e0239779c,
     type: 3}
-  growthTimeSeconds: 5
+  growthTimeSeconds: 30
   maxSize: {x: 1, y: 0.7, z: 0.7}
 --- !u!114 &4228943136194645264
 MonoBehaviour:

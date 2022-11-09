@@ -27,13 +27,13 @@ public class InventoryManager : MonoBehaviour
     public void ResetInventory()
     {
         corn = 0;
-        tomato = 20;
+        tomato = 0;
         turnip = 0;
         pumpkin = 0;
-        cornSeeds = 20;
-        tomatoSeeds = 50;
-        turnipSeeds = 10;
-        pumpkinSeeds = 6;
+        cornSeeds = 18;
+        tomatoSeeds = 36;
+        turnipSeeds = 18;
+        pumpkinSeeds = 9;
     }
 
     void OnTriggerEnter(Collider collider)

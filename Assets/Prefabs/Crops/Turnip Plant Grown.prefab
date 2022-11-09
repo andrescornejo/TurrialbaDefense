@@ -130,5 +130,5 @@ MonoBehaviour:
   cropDropPrefab: {fileID: 4896063726009418785, guid: 6905cbc3845cf144ea0922b36c5f8a25,
     type: 3}
   seedDropAmount: 1
-  cropDropAmount: 1
+  cropDropAmount: 2
   hitpoints: 1
